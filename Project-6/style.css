@@ -169,7 +169,7 @@ i:hover {
 }
 #gallery img:hover{
     transition: all 1s ease-in-out 0s;
-    transform: scale(1.05);
+    transform: scale(0.97);
     border-radius: 10px;
 }
 
