@@ -61,7 +61,14 @@ app.post('/login.html', (req, res) => {
                   else if(password == result[0].password){
                         var sql = `SELECT * FROM request WHERE email = "${email}"`;
                         con.query(sql, (err, result) => {
-                              if(err) throw err;
+                              if(result.length==0){
+                                    res.render('index');
+                              }
+                              
+                              // if(err){
+                              //       res.redirect('/views/index.hbs');
+                              // }
+                              
                               else{
                                     console.log(result);
                                     res.render('index', {
@@ -71,6 +78,7 @@ app.post('/login.html', (req, res) => {
                                           serviceType: result[0].serviceType,
                                     });
                               }
+                              
                         })
 
                         // res.render('index', {});
